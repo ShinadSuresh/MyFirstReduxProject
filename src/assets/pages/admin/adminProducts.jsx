@@ -1,16 +1,22 @@
 
 import React from "react";
 import { MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardImage, } from "mdbreact";
-import { useSelector } from "react-redux";
-import { ButtoN } from "../../../Components/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { removeProduct } from "../../Redux/slices/ProductSlice";
+import { NavLink, Link } from "react-router-dom";
+
 
 
 const AdminProducts = () => {
 
   const productitem = useSelector((state) => state.prdct)
-  console.log(productitem)
-
   
+  const dispatch = useDispatch();
+  const removeItem = (item) => {
+      const removeId = parseInt(item.target.id);
+      dispatch(removeProduct({ id: removeId }));
+  };
+
 
   return (
     <div className="container"  style={{ width: "100%", margin: "0 auto", marginTop:'30px' }}>
@@ -25,13 +31,12 @@ const AdminProducts = () => {
                 <strong>{item.title && item.title.substring(0, 12)}</strong>
                 </h5>
                 <h6 className="font-weight-bold blue-text">$ {item.price}</h6>
-                {/* <NavLink to={`/viewproduct/${item.id}`}>
-                <img src="src/assets/images/plus button.jpg" alt="Button Image"  />
-                </NavLink> */} 
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
-                  <ButtoN text="Edit" />
-                  <ButtoN text="Remove" onClick={() => removeItem (item.id)} />
-                  <button >remove</button>
+                  <NavLink as={Link} to={`/edit/${item.id}`}>  
+                <button style={{ backgroundColor: "#2E8B57", color: "white", borderRadius: "5px", padding: "10px 20px", border: "none"  }}   >Edit</button>
+                </NavLink>
+                
+                  <button style={{ backgroundColor: "#FF6347", color: "white", borderRadius: "5px", padding: "10px 20px", border: "none" }} onClick={removeItem}  id={item.id}  >remove</button>
                 </div>
               </MDBCardBody>
             </MDBCard>

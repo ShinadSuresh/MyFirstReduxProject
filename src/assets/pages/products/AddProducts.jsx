@@ -17,7 +17,6 @@ const AddProducts = () => {
     });
   }, []);
 
-  
 
   return (
     <div className="container"  style={{ width: "100%", margin: "0 auto", marginTop:'30px' }}>

@@ -16,11 +16,7 @@ import Cart from './assets/pages/products/Cart';
 import AdminLog from './assets/pages/admin/AdminLog';
 import AdminProducts from './assets/pages/admin/adminProducts';
 import Adminadd from './assets/pages/admin/Adminadd';
-
-
-
-
-
+import EditProduct from './assets/pages/admin/EditProduct';
 
 
 function App() {
@@ -29,7 +25,7 @@ function App() {
 
 
     useEffect(()=> {
-      if(location.pathname.includes('admin') || location.pathname.includes('adminlog')) {
+      if(location.pathname.includes('admin') || location.pathname.includes('adminlog') || location.pathname.includes('edit') ) {
         setChange(true)
       }
       else {
@@ -55,6 +51,7 @@ function App() {
       <Route path='/adminlog' element={<AdminLog/>}/>
       <Route path='/adminproducts' element={<AdminProducts/>}/>
       <Route path='/adminadd' element={<Adminadd/>} />
+      <Route path='/edit/:id' element={<EditProduct/>} />
       
       </Routes>
     </Provider>

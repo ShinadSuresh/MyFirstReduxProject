@@ -14,8 +14,26 @@ const productSlice = createSlice({
             const { id } = action.payload;
             return state.filter((items) => items.id !== id);
         },
+
+        adminAddProduct: (state, action) => {
+            state.push(action.payload);
+        },
+
+        updateProduct: (state, action) => {
+            const { id, image, title, price } = action.payload;
+            const productToUpdate = state.find((item) => item.id === id);
+            if (productToUpdate) {
+                productToUpdate.id = id;
+              productToUpdate.image = image;
+              productToUpdate.title = title;
+              productToUpdate.price = price;
+            }
+        },
+        viewedProduct: (state,action) =>  {
+            return{...action.payload}   
+    },
     }
 })
 
-export const { productList } =productSlice.actions;
+export const { productList, removeProduct, adminAddProduct, updateProduct } =productSlice.actions;
 export default productSlice.reducer
