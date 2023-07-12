@@ -12,7 +12,8 @@ const AddProducts = () => {
   const product = useSelector((state) => state.prdct) 
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((response) => {
+    axios.get("https://fakestoreapi.com/products")
+      .then((response) => {
       dispatch(productList(response.data));
     });
   }, []);

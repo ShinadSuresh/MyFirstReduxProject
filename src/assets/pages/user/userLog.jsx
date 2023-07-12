@@ -29,7 +29,7 @@ export default function UserLog() {
 
         dispatch(loginUser({email, password}))
 
-        const user = sign.find((e) => e.email === email && e.password === password);
+        const user = sign.find((e) => e.email === email && e.password == password);
     
         if (user &&  user.isLoggedIn) {
           alert('Logged in sucessfull')

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBBtn} from 'mdbreact';
 import 'mdbreact/dist/css/mdb.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,6 +10,7 @@ import { addItem } from '../../Redux/slices/cartSlice';
 export default function ViewProduct() {
   const { id } = useParams();
   const dispatch = useDispatch()
+  const nav = useNavigate()
 
   const products = useSelector((state) => state.prdct)
 
@@ -20,8 +21,10 @@ export default function ViewProduct() {
   } 
 
   const handleAddtoCart = () => {
-      dispatch(addItem(product));
-  }
+      dispatch(addItem(product)); 
+      nav('/userlog')
+    }
+
 
   return (
     <MDBContainer>
