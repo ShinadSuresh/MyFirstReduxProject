@@ -1,3 +1,6 @@
+// 
+
+
 import React, { useRef } from 'react';
 import {
   MDBInput,
@@ -7,18 +10,18 @@ import {
   MDBBtn,
  
 } from 'mdb-react-ui-kit';
-import { ButtoN } from '../../../Components/Button';
 import { Link, useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../../Redux/slices/SigninSlice';
+import axios from 'axios';
+import { adminlogin } from '../../Redux/slices/AdminlogSlice';
 
 
 
 export default function UserLog() {
   const nav= useNavigate()
     const dispatch = useDispatch()
-    const sign = useSelector((state) => state.signin)
+    
     
     const myreff =useRef();
 
@@ -26,19 +29,22 @@ export default function UserLog() {
       e.preventDefault();
         const email = myreff.current.Email.value;
         const password = myreff.current.Password.value;
- 
-
-        dispatch(loginUser({email, password}))
-
-        const user = sign.find((e) => e.email === email && e.password == password);
-    
-        if (user &&  user.isLoggedIn) {
-          alert('Logged in sucessfull')
-          nav('/cart');
-        } else {
-          alert('User does not exist');
-        }
         
+        
+        axios
+        .post("http://localhost:4000/admin/login", {
+          userName: email,
+          password: password,
+        })
+        .then((response) => {
+          dispatch(adminlogin(response.data));
+          console.log((response.data));
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+
+        nav('/dealer')
       };
     
 
@@ -69,7 +75,7 @@ export default function UserLog() {
           <div className='text-center'>
           <NavLink as={Link} to='/usersign'>
             <p>
-              Do you have an account <span  >Join free today</span>
+              Do you have an account <a href='' >Join free today</a>
             </p>
             </NavLink>
 

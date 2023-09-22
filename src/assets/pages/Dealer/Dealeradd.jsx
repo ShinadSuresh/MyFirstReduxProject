@@ -5,12 +5,13 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from 'react-bootstrap/Button';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { adminAddProduct } from '../../Redux/slices/ProductSlice';
+import { DealerAddProduct } from '../../Redux/slices/ProductSlice';
 
 
 
 
-const Adminadd = () => {
+
+const Dealeradd = () => {
   const nav = useNavigate();
     const dispatch = useDispatch()
     const myref = useRef()
@@ -23,9 +24,9 @@ const Adminadd = () => {
         const price = myref.current.price.value;
         const id = Math.floor(Math.random() * 81) + 20;
 
-        dispatch(adminAddProduct({image, title , price, id }));
-        nav('/adminproducts')
-        
+        dispatch(DealerAddProduct({image, title , price, id }));
+        nav('/dealerproducts')
+       
     }
 
   return (
@@ -89,4 +90,4 @@ const Adminadd = () => {
   
 }
 
-export default Adminadd;
+export default Dealeradd;

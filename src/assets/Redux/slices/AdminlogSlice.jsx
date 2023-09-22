@@ -6,20 +6,17 @@ const adminlogSlice = createSlice({
     name: 'adminLog',
     initialState: {
         loggedin:false,
-        admin: {
-            userName: 'shinadbp55@gmail.com',
-            password: '12345678',
-        },    
+           
     },
     reducers: {
-        login: (state) => {
+        adminlogin: (state) => {
             state.loggedin = true;
         },
-        logout: (state) => {
+        adminlogout: (state) => {
             state.loggedin = false;
         },
     }
 })
 
-export const { login,logout } = adminlogSlice.actions;
+export const { adminlogin,adminlogout } = adminlogSlice.actions;
 export default adminlogSlice.reducer;

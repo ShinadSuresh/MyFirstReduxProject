@@ -7,17 +7,16 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './assets/pages/Home';
 import UserLog from './assets/pages/user/userLog';
 import UserSign from './assets/pages/user/userSign';
-import { Admin } from './assets/pages/admin/Admin';
+import { Dealer } from './assets/pages/Dealer/Dealer';
 import AddProducts from './assets/pages/products/AddProducts';
 import ViewProduct from './assets/pages/products/ViewProduct';
 import { Provider } from 'react-redux';
 import store from './assets/Redux/store';
 import Cart from './assets/pages/products/Cart';
-import AdminLog from './assets/pages/admin/AdminLog';
-import AdminProducts from './assets/pages/admin/adminProducts';
-import Adminadd from './assets/pages/admin/Adminadd';
-import EditProduct from './assets/pages/admin/EditProduct';
-
+import AdminLog from './assets/pages/Dealer/AdminLog';
+import EditProduct from './assets/pages/Dealer/EditProduct';
+import Dealeradd from './assets/pages/Dealer/Dealeradd';
+import DealerProducts from './assets/pages/Dealer/dealerProducts';
 
 function App() {
     const Location = useLocation()
@@ -25,7 +24,7 @@ function App() {
 
 
     useEffect(()=> {
-      if(location.pathname.includes('admin') || location.pathname.includes('adminlog') || location.pathname.includes('edit') ) {
+      if(location.pathname.includes('dealer') || location.pathname.includes('dealeradd') || location.pathname.includes('edit') ) {
         setChange(true)
       }
       else {
@@ -47,10 +46,10 @@ function App() {
       <Route path='/cart' element={<Cart/>}/>
       
       
-      <Route path='/admin' element={<Admin/>}/>
+      <Route path='/dealer' element={<Dealer/>}/>
       <Route path='/adminlog' element={<AdminLog/>}/>
-      <Route path='/adminproducts' element={<AdminProducts/>}/>
-      <Route path='/adminadd' element={<Adminadd/>} />
+      <Route path='/dealerproducts' element={<DealerProducts/>}/>
+      <Route path='/dealeradd' element={<Dealeradd/>} />
       <Route path='/edit/:id' element={<EditProduct/>} />
       
       </Routes>

@@ -15,7 +15,7 @@ const productSlice = createSlice({
             return state.filter((items) => items.id !== id);
         },
 
-        adminAddProduct: (state, action) => {
+        DealerAddProduct: (state, action) => {
             state.push(action.payload);
         },
 
@@ -35,5 +35,5 @@ const productSlice = createSlice({
     }
 })
 
-export const { productList, removeProduct, adminAddProduct, updateProduct } =productSlice.actions;
+export const { productList, removeProduct, DealerAddProduct, updateProduct } =productSlice.actions;
 export default productSlice.reducer

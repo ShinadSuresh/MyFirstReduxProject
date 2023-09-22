@@ -14,8 +14,6 @@ const store = configureStore({
     cart: cartSlice,
     adminLogin: AdminlogSlice,
     signin: SigninSlice,
-    
-
       
   },
 });

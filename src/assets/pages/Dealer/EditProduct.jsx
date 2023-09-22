@@ -25,7 +25,7 @@ const EditProduct = () => {
         price: price.value,
       })
     );
-    nav('/adminproducts');
+    nav('/dealerproducts');
     console.log(EditData);
   };
 

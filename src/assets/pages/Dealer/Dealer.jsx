@@ -4,9 +4,9 @@ import { Col, Container, NavLink, Row, Table } from 'react-bootstrap';
 import {  useSelector } from 'react-redux';
 
 
-export const Admin = () => {
+export const Dealer = () => {
 
-  const adminData = useSelector((state) => state.signin)
+  const dealerData = useSelector((state) => state.signin)
 
   return (
     <Container fluid>
@@ -15,26 +15,35 @@ export const Admin = () => {
           <div className="container-fluid">
             <div className="collapse navbar-collapse" style={{ padding: '40px' }}>
               <ul className="navbar-nav mb-auto flex-column">
-                <h1>Admin Page</h1>
+                <h1>Dealer Page</h1>
                 <li className="nav-item">
-                  <NavLink as={Link} to="/adminadd">
-                    <a className="nav-link" href="#" style={{ textAlign: 'start' }}>
+                  <NavLink as={Link} to="/dealeradd">
+                    <span className="nav-link" href="#" style={{ textAlign: 'start' }}>
                       Dashboard
-                    </a>
+                    </span>
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink as={Link} to="/adminproducts">
-                    <a className="nav-link" href="#" style={{ textAlign: 'start' }}>
+                  <NavLink as={Link} to="/dealerproducts">
+                    <span className="nav-link" href="#" style={{ textAlign: 'start' }}>
                       All Products
-                    </a>
+                    </span>
                   </NavLink>
                 </li>
+
                 <li className="nav-item">
                   <NavLink as={Link} to="/">
-                    <a className="nav-link" href="#" style={{ textAlign: 'start' }}>
+                    <span className="nav-link" href="#" style={{ textAlign: 'start' }}>
+                      Admin
+                    </span>
+                  </NavLink>
+                </li>
+
+                <li className="nav-item">
+                  <NavLink as={Link} to="/">
+                    <span className="nav-link" href="#" style={{ textAlign: 'start' }}>
                       Home
-                    </a>
+                    </span>
                   </NavLink>
                 </li>
               </ul>
@@ -53,7 +62,7 @@ export const Admin = () => {
                 </tr>
               </thead>
               <tbody>
-                {adminData.map((e) => (
+                {dealerData.map((e) => (
                   <tr key={e.id}>
                     <td>{e.userName}</td>
                     <td>{e.email}</td>

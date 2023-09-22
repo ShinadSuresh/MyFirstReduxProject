@@ -37,7 +37,7 @@ const Cart = () => {
                     className="w-100"
                     style={{ height: "350px" }}
                   />
-                  <a href="#!">
+                  <span href="#!">
                     <div className="mask">
                       <div className="d-flex justify-content-start align-items-end h-100">
                         <h5>
@@ -51,7 +51,7 @@ const Cart = () => {
                         style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
                       ></div>
                     </div>
-                  </a>
+                  </span>
                 </MDBRipple>
                 <MDBCardBody>
                   <h5 className="card-title mb-3">{item.title}</h5>

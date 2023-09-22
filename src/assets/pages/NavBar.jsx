@@ -21,7 +21,7 @@ export const NavBar = () => {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <NavLink as={Link} to="/">
-                  <a
+                  <span
                     className="nav-link"
                     style={{
                       color: "green",
@@ -30,7 +30,7 @@ export const NavBar = () => {
                     }}
                   >
                     MY MART
-                  </a>
+                  </span>
                 </NavLink>
               </li>
             </ul>
@@ -40,8 +40,8 @@ export const NavBar = () => {
             <MDBDropdown>
               <MDBDropdownToggle tag="a" className="nav-link" role="button" />
               <MDBDropdownMenu>
-              <NavLink as={Link} to='/admin'> 
-                <MDBDropdownItem link >Admin</MDBDropdownItem>
+              <NavLink as={Link} to='/dealer'> 
+                <MDBDropdownItem link >Dealer</MDBDropdownItem>
                 </NavLink>
                 <MDBDropdownItem link>Another action</MDBDropdownItem>
                 <MDBDropdownItem link>Something else here</MDBDropdownItem>
@@ -50,7 +50,7 @@ export const NavBar = () => {
             <span style={{ margin: "0 20px" }}></span>{" "}
             {/* Add spacing between icons */}
             <NavLink as={Link} to="/cart">
-              <a className="cart" href="#">
+             
                 <i
                   className="fas fa-shopping-cart"
                   style={{ fontSize: "24px", color: "black" }}
@@ -66,17 +66,17 @@ export const NavBar = () => {
                 >
                   {cartItem.length}
                 </span>
-              </a>
+             
             </NavLink>
             <span style={{ margin: "0 20px" }}></span>{" "}
             {/* Add spacing between icons */}
             <NavLink as={Link} to="/userlog">
-              <a className="contact" href="#">
+              
                 <i
                   className="fas fa-id-badge"
                   style={{ fontSize: "24px", color: "black" }}
                 ></i>
-              </a>
+              
             </NavLink>
           </div>
         </div>

@@ -7,7 +7,7 @@ import { NavLink, Link } from "react-router-dom";
 
 
 
-const AdminProducts = () => {
+const DealerProducts = () => {
 
   const productitem = useSelector((state) => state.prdct)
   
@@ -48,4 +48,4 @@ const AdminProducts = () => {
   )
 }
 
-export default AdminProducts
+export default DealerProducts

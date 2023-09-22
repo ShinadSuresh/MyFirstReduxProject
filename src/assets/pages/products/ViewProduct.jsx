@@ -12,6 +12,7 @@ export default function ViewProduct() {
   const dispatch = useDispatch()
   const nav = useNavigate()
 
+  const isLoggedIn = useSelector((state) => state.loginUser)
   const products = useSelector((state) => state.prdct)
 
   const product = products.find((item) => item.id === parseInt(id));
@@ -22,7 +23,11 @@ export default function ViewProduct() {
 
   const handleAddtoCart = () => {
       dispatch(addItem(product)); 
-      nav('/userlog')
+      if (isLoggedIn) {
+        nav('/cart')
+      } else {
+        nav('/userlog')
+      }
     }
 
 
